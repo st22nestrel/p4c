@@ -161,11 +161,14 @@ bool ControlGraphs::preorder(const IR::SwitchStatement *statement) {
     auto tbl = P4::TableApplySolver::isActionRun(statement->expression, refMap, typeMap);
     vertex_t v;
     // special case for action_run
-    if (tbl != nullptr) {
-        visit(tbl);
-    }
     std::stringstream sstream;
-    statement->expression->dbprint(sstream);
+    if (tbl == nullptr) {
+        statement->expression->dbprint(sstream);
+    } else {
+        visit(tbl);
+        sstream << "switch: action_run";
+    }
+
     v = add_and_connect_vertex(cstring(sstream), VertexType::SWITCH);
 
     Parents new_parents;
