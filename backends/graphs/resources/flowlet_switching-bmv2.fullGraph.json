@@ -1,5 +1,5 @@
 {
-  "name" : "program",
+  "name" : "flowlet",
   "nodes" : [
     {
       "type" : "parser",
@@ -46,32 +46,32 @@
         {
           "from" : 0,
           "to" : 1,
-          "cond" : ""
+          "cond" : "16w0x800"
         },
         {
           "from" : 0,
           "to" : 4,
-          "cond" : ""
+          "cond" : "default"
         },
         {
           "from" : 1,
           "to" : 2,
-          "cond" : ""
+          "cond" : "8w6"
         },
         {
           "from" : 1,
           "to" : 4,
-          "cond" : ""
+          "cond" : "default"
         },
         {
           "from" : 2,
           "to" : 4,
-          "cond" : ""
+          "cond" : "always"
         },
         {
           "from" : 3,
           "to" : 0,
-          "cond" : ""
+          "cond" : "always"
         }
       ]
     },
@@ -93,7 +93,7 @@
         },
         {
           "node_nmb" : 2,
-          "name" : "verify_checksum<list<bit<4>, bit<4>, bit<8>, bit<16>, bit<16>, bit<3>, bit<13>, bit<8>, bit<8>, bit<32>, bit<32>>, bit<16>>(hdr.ipv4.isValid(), {hdr.ipv4.version, hdr.ipv4.ihl, hdr.ipv4.diffserv, hdr.ipv4.totalLen, hdr.ipv4.identification, hdr.ipv4.flags, hdr.ipv4.fragOffset, hdr.ipv4.ttl, hdr.ipv4.protocol, hdr.ipv4.srcAddr, hdr.ipv4.dstAddr}, hdr.ipv4.hdrChecksum, HashAlgorithm.csum16);",
+          "name" : "verify_checksum<list<bit<...",
           "type" : "statements",
           "type_enum" : 5
         }
@@ -141,7 +141,7 @@
         },
         {
           "node_nmb" : 4,
-          "name" : "hash<bit<13>, bit<13>, list<bit<32>, bit<32>, bit<8>, bit<16>, bit<16>>, bit<26>>(meta.ingress_metadata.flowlet_map_index, HashAlgorithm.crc16, 0, {hdr.ipv4.srcAddr, hdr.ipv4.dstAddr, hdr.ipv4.protocol, hdr.tcp.srcPort, hdr.tcp.dstPort}, 13);\n...\nflowlet_lasttime_0/flowlet_lasttime.write((bit<32>)meta.ingress_metadata.flowlet_map_index, (bit<32>)standard_metadata.ingress_global_timestamp);",
+          "name" : "hash<bit<13>, bit<13>, li...\\n...\\nflowlet_lasttime_0/flowle...",
           "type" : "statements",
           "type_enum" : 5
         },
@@ -171,7 +171,7 @@
         },
         {
           "node_nmb" : 9,
-          "name" : "meta.ingress_metadata.flowlet_id = meta.ingress_metadata.flowlet_id + 1;\nflowlet_id_0/flowlet_id.write((bit<32>)meta.ingress_metadata.flowlet_map_index, meta.ingress_metadata.flowlet_id);",
+          "name" : "meta.ingress_metadata.flo...\\nflowlet_id_0/flowlet_id.w...",
           "type" : "statements",
           "type_enum" : 5
         },
@@ -201,7 +201,7 @@
         },
         {
           "node_nmb" : 14,
-          "name" : "mark_to_drop(standard_metadata);",
+          "name" : "mark_to_drop(standard_met...",
           "type" : "statements",
           "type_enum" : 5
         },
@@ -213,7 +213,7 @@
         },
         {
           "node_nmb" : 16,
-          "name" : "hash<bit<14>, bit<10>, list<bit<32>, bit<32>, bit<8>, bit<16>, bit<16>, bit<16>>, bit<20>>(meta.ingress_metadata.ecmp_offset, HashAlgorithm.crc16, (bit<10>)ecmp_base, {hdr.ipv4.srcAddr, hdr.ipv4.dstAddr, hdr.ipv4.protocol, hdr.tcp.srcPort, hdr.tcp.dstPort, meta.ingress_metadata.flowlet_id}, (bit<20>)ecmp_count);",
+          "name" : "hash<bit<14>, bit<10>, li...",
           "type" : "statements",
           "type_enum" : 5
         },
@@ -243,7 +243,7 @@
         },
         {
           "node_nmb" : 21,
-          "name" : "mark_to_drop(standard_metadata);",
+          "name" : "mark_to_drop(standard_met...",
           "type" : "statements",
           "type_enum" : 5
         },
@@ -255,7 +255,7 @@
         },
         {
           "node_nmb" : 23,
-          "name" : "meta.ingress_metadata.nhop_ipv4 = nhop_ipv4_1/nhop_ipv4;\n...\nhdr.ipv4.ttl = hdr.ipv4.ttl + 255;",
+          "name" : "meta.ingress_metadata.nho...\\n...\\nhdr.ipv4.ttl = hdr.ipv4.t...",
           "type" : "statements",
           "type_enum" : 5
         },
@@ -285,7 +285,7 @@
         },
         {
           "node_nmb" : 28,
-          "name" : "hdr.ethernet.dstAddr = dmac;",
+          "name" : "hdr.ethernet.dstAddr = dm...",
           "type" : "statements",
           "type_enum" : 5
         },
@@ -297,7 +297,7 @@
         },
         {
           "node_nmb" : 30,
-          "name" : "mark_to_drop(standard_metadata);",
+          "name" : "mark_to_drop(standard_met...",
           "type" : "statements",
           "type_enum" : 5
         },
@@ -342,12 +342,12 @@
         {
           "from" : 6,
           "to" : 7,
-          "cond" : ""
+          "cond" : "TRUE"
         },
         {
           "from" : 6,
           "to" : 11,
-          "cond" : ""
+          "cond" : "FALSE"
         },
         {
           "from" : 7,
@@ -547,7 +547,7 @@
         },
         {
           "node_nmb" : 5,
-          "name" : "hdr.ethernet.srcAddr = smac;",
+          "name" : "hdr.ethernet.srcAddr = sm...",
           "type" : "statements",
           "type_enum" : 5
         },
@@ -559,7 +559,7 @@
         },
         {
           "node_nmb" : 7,
-          "name" : "mark_to_drop(standard_metadata);",
+          "name" : "mark_to_drop(standard_met...",
           "type" : "statements",
           "type_enum" : 5
         },
@@ -641,7 +641,7 @@
         },
         {
           "node_nmb" : 2,
-          "name" : "update_checksum<list<bit<4>, bit<4>, bit<8>, bit<16>, bit<16>, bit<3>, bit<13>, bit<8>, bit<8>, bit<32>, bit<32>>, bit<16>>(hdr.ipv4.isValid(), {hdr.ipv4.version, hdr.ipv4.ihl, hdr.ipv4.diffserv, hdr.ipv4.totalLen, hdr.ipv4.identification, hdr.ipv4.flags, hdr.ipv4.fragOffset, hdr.ipv4.ttl, hdr.ipv4.protocol, hdr.ipv4.srcAddr, hdr.ipv4.dstAddr}, hdr.ipv4.hdrChecksum, HashAlgorithm.csum16);",
+          "name" : "update_checksum<list<bit<...",
           "type" : "statements",
           "type_enum" : 5
         }
@@ -677,7 +677,7 @@
         },
         {
           "node_nmb" : 2,
-          "name" : "packet.emit<ethernet_t>(hdr.ethernet);\n...\npacket.emit<tcp_t>(hdr.tcp);",
+          "name" : "packet.emit<ethernet_t>(h...\\n...\\npacket.emit<tcp_t>(hdr.tc...",
           "type" : "statements",
           "type_enum" : 5
         }

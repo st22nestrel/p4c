@@ -1,5 +1,5 @@
 {
-  "name" : "program",
+  "name" : "firewall",
   "nodes" : [
     {
       "type" : "parser",
@@ -40,27 +40,27 @@
         {
           "from" : 0,
           "to" : 1,
-          "cond" : ""
+          "cond" : "16w0x800"
         },
         {
           "from" : 0,
           "to" : 3,
-          "cond" : ""
+          "cond" : "default"
         },
         {
           "from" : 1,
           "to" : 2,
-          "cond" : ""
+          "cond" : "8w6"
         },
         {
           "from" : 1,
           "to" : 3,
-          "cond" : ""
+          "cond" : "default"
         },
         {
           "from" : 2,
           "to" : 3,
-          "cond" : ""
+          "cond" : "always"
         }
       ]
     },
@@ -131,7 +131,7 @@
         },
         {
           "node_nmb" : 6,
-          "name" : "standard_metadata.egress_spec = port;\n...\nhdr.ipv4.ttl = hdr.ipv4.ttl + 255;",
+          "name" : "standard_metadata.egress_...\\n...\\nhdr.ipv4.ttl = hdr.ipv4.t...",
           "type" : "statements",
           "type_enum" : 5
         },
@@ -143,7 +143,7 @@
         },
         {
           "node_nmb" : 8,
-          "name" : "mark_to_drop(standard_metadata);",
+          "name" : "mark_to_drop(standard_met...",
           "type" : "statements",
           "type_enum" : 5
         },
@@ -161,7 +161,7 @@
         },
         {
           "node_nmb" : 11,
-          "name" : "direction_0/direction = 0;",
+          "name" : "direction_0/direction = 0...",
           "type" : "statements",
           "type_enum" : 5
         },
@@ -185,7 +185,7 @@
         },
         {
           "node_nmb" : 15,
-          "name" : "compute_hashes_1/compute_hashes();",
+          "name" : "compute_hashes_1/compute_...",
           "type" : "statements",
           "type_enum" : 5
         },
@@ -203,7 +203,7 @@
         },
         {
           "node_nmb" : 18,
-          "name" : "bloom_filter/bloom_filter_1.write(reg_pos_one_0/reg_pos_one, 1);\nbloom_filter_0/bloom_filter_2.write(reg_pos_two_0/reg_pos_two, 1);",
+          "name" : "bloom_filter/bloom_filter...\\nbloom_filter_0/bloom_filt...",
           "type" : "statements",
           "type_enum" : 5
         },
@@ -215,7 +215,7 @@
         },
         {
           "node_nmb" : 20,
-          "name" : "bloom_filter/bloom_filter_1.read(reg_val_one_0/reg_val_one, reg_pos_one_0/reg_pos_one);\nbloom_filter_0/bloom_filter_2.read(reg_val_two_0/reg_val_two, reg_pos_two_0/reg_pos_two);",
+          "name" : "bloom_filter/bloom_filter...\\nbloom_filter_0/bloom_filt...",
           "type" : "statements",
           "type_enum" : 5
         },
@@ -241,12 +241,12 @@
         {
           "from" : 2,
           "to" : 3,
-          "cond" : ""
+          "cond" : "TRUE"
         },
         {
           "from" : 2,
           "to" : 1,
-          "cond" : ""
+          "cond" : "FALSE"
         },
         {
           "from" : 3,
@@ -296,12 +296,12 @@
         {
           "from" : 10,
           "to" : 11,
-          "cond" : ""
+          "cond" : "TRUE"
         },
         {
           "from" : 10,
           "to" : 1,
-          "cond" : ""
+          "cond" : "FALSE"
         },
         {
           "from" : 11,
@@ -311,22 +311,22 @@
         {
           "from" : 12,
           "to" : 13,
-          "cond" : ""
+          "cond" : "TRUE"
         },
         {
           "from" : 12,
           "to" : 1,
-          "cond" : ""
+          "cond" : "FALSE"
         },
         {
           "from" : 13,
           "to" : 14,
-          "cond" : ""
+          "cond" : "TRUE"
         },
         {
           "from" : 13,
           "to" : 15,
-          "cond" : ""
+          "cond" : "FALSE"
         },
         {
           "from" : 14,
@@ -341,22 +341,22 @@
         {
           "from" : 16,
           "to" : 17,
-          "cond" : ""
+          "cond" : "TRUE"
         },
         {
           "from" : 16,
           "to" : 19,
-          "cond" : ""
+          "cond" : "FALSE"
         },
         {
           "from" : 17,
           "to" : 18,
-          "cond" : ""
+          "cond" : "TRUE"
         },
         {
           "from" : 17,
           "to" : 1,
-          "cond" : ""
+          "cond" : "FALSE"
         },
         {
           "from" : 18,
@@ -366,12 +366,12 @@
         {
           "from" : 19,
           "to" : 20,
-          "cond" : ""
+          "cond" : "TRUE"
         },
         {
           "from" : 19,
           "to" : 1,
-          "cond" : ""
+          "cond" : "FALSE"
         },
         {
           "from" : 20,
@@ -381,12 +381,12 @@
         {
           "from" : 21,
           "to" : 22,
-          "cond" : ""
+          "cond" : "TRUE"
         },
         {
           "from" : 21,
           "to" : 1,
-          "cond" : ""
+          "cond" : "FALSE"
         },
         {
           "from" : 22,
@@ -438,7 +438,7 @@
         },
         {
           "node_nmb" : 2,
-          "name" : "update_checksum<list<bit<4>, bit<4>, bit<8>, bit<16>, bit<16>, bit<3>, bit<13>, bit<8>, bit<8>, bit<32>, bit<32>>, bit<16>>(hdr.ipv4.isValid(), {hdr.ipv4.version, hdr.ipv4.ihl, hdr.ipv4.diffserv, hdr.ipv4.totalLen, hdr.ipv4.identification, hdr.ipv4.flags, hdr.ipv4.fragOffset, hdr.ipv4.ttl, hdr.ipv4.protocol, hdr.ipv4.srcAddr, hdr.ipv4.dstAddr}, hdr.ipv4.hdrChecksum, HashAlgorithm.csum16);",
+          "name" : "update_checksum<list<bit<...",
           "type" : "statements",
           "type_enum" : 5
         }
@@ -474,7 +474,7 @@
         },
         {
           "node_nmb" : 2,
-          "name" : "packet.emit<ethernet_t>(hdr.ethernet);\n...\npacket.emit<tcp_t>(hdr.tcp);",
+          "name" : "packet.emit<ethernet_t>(h...\\n...\\npacket.emit<tcp_t>(hdr.tc...",
           "type" : "statements",
           "type_enum" : 5
         }
